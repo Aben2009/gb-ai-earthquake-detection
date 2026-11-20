@@ -1,0 +1,10 @@
+,0
+Dataset,"ETHZ (SeisBench), resample 100 Hz, window 30 s"
+Window test (gempa/noise),1832/1832
+Parameter GB AI,"859,332"
+GB AI accuracy,98.1%
+GB AI F1,98.1%
+GB AI false-alarm rate,1.4%
+MAE magnitudo,0.35
+Median deteksi setelah P,0.20 s
+Inference GB AI (CPU),1635.8 ms

@@ -32,7 +32,7 @@ The repository includes a live dashboard that replays real earthquake recordings
 | False-alarm rate (per window) | 1.4% | 2.4% |
 | Magnitude MAE (all events) | 0.35 | – |
 
-Replayed real-time test on 200 recordings: 99.5% detected, median **0.20 s** of P-wave data needed to raise an alert, 4.5% of recordings had an early false alarm. Inference takes about **50 ms per window** on a laptop CPU (Ryzen 9 5900HX).
+Replayed real-time test on 200 recordings: 99.5% detected, median **0.20 s** of P-wave data needed to raise an alert, 4.5% of recordings had an early false alarm. Inference takes about **63 ms per window** on a free Google Colab CPU when the model is compiled into a static graph (see `GB_AI_Evaluation.ipynb`); the original paper measured 1.6 s per window with step-by-step (eager) execution.
 
 ## Limitations
 
@@ -63,7 +63,9 @@ Open `GB_AI_Prototype_Colab.ipynb` in Google Colab (GPU runtime recommended). It
 | File | Purpose |
 | --- | --- |
 | `app.py` | Live Streamlit dashboard |
-| `GB_AI_Prototype_Colab.ipynb` | Data preparation, training and evaluation |
+| `GB_AI_Prototype_Colab.ipynb` | Data preparation, training and evaluation (code; the original training run's outputs were not saved) |
+| `GB_AI_Evaluation.ipynb` | Re-runs the evaluation of the saved model, with outputs |
+| `hasil_prototype.csv` | Summary of the original prototype results from Colab |
 | `gb_ai.keras` | Trained GB AI model |
 | `gbai_demo_recordings.npz` | Demo recordings replayed by the dashboard |
 | `make_demo_data.py` | Extracts the demo recordings from the full Colab cache |

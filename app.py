@@ -164,10 +164,11 @@ for e in ends:
     t0 = time.perf_counter()
     x = normalize(seg[:, e - WIN:e])[None]
     det, mag = model(tf.constant(x))
+    det, mag = det.numpy(), mag.numpy()   # wait for the result before stopping the clock
     ms = (time.perf_counter() - t0) * 1000
-    p = float(det.numpy()[0, 0])
-    mu = float(mag.numpy()[0, 0])
-    sigma = float(np.sqrt(np.exp(np.clip(mag.numpy()[0, 1], -6, 6))))
+    p = float(det[0, 0])
+    mu = float(mag[0, 0])
+    sigma = float(np.sqrt(np.exp(np.clip(mag[0, 1], -6, 6))))
     t = (e - P_IDX) / SR
     times.append(t); probs.append(p); inf_ms.append(ms)
 
