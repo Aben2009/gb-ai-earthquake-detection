@@ -1,0 +1,15 @@
+# virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# full training cache from Colab (too large for GitHub)
+gbai_windows_30s.npz
+
+# editor / OS files
+.vscode/
+.DS_Store
+Thumbs.db
